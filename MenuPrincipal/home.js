@@ -69,6 +69,19 @@ function cerrarPopupFini() {
 }
 
 // ====================
+// Pop-up "yoda"
+// ====================
+function mostrarPopupYoda() {
+  const popup = document.getElementById("popupYoda");
+  popup.style.display = "flex";
+}
+
+function cerrarPopupYoda() {
+  const popup = document.getElementById("popupYoda");
+  popup.style.display = "none";
+}
+
+// ====================
 // Detector de secuencia de letras
 // ====================
 let buffer = "";
@@ -95,6 +108,11 @@ document.addEventListener("keydown", function(e) {
 
   if (buffer.endsWith("fini")) {
     mostrarPopupFini();
+    buffer = "";
+  }
+
+  if (buffer.endsWith("yoda")) {
+    mostrarPopupYoda();
     buffer = "";
   }
 });
