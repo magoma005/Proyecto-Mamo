@@ -19,13 +19,53 @@
       <a href="../Playlist/playlist.html" class="menu-btn">🎶 Nuestra música</a>
     </div>
   </div>
-<!-- 🌸 Pop-up oculto -->
+<!-- 🌸 Pop-up oculto normal -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <p>Hola Andre, soy Rosita Fresita, y te quiero muchooo linda 💕🍓</p>
     <button onclick="cerrarPopup()">Cerrar</button>
   </div>
 </div>
+
+<!-- 💜 Pop-up secreto de "meamo" -->
+<div id="popupMeamo" class="popup">
+  <div class="popup-content video-popup">
+    <video id="videoMeamo" width="400" controls>
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta videos.
+    </video>
+    <p id="finalMessage" style="display:none; margin-top:15px; font-size:16px; color:#a64ac9; font-weight:bold;">
+      Gracias por casi estos 2 años mi vida, te amodoro 💜✨
+    </p>
+    <button onclick="cerrarPopupMeamo()">Cerrar</button>
+  </div>
+</div>
+
+<!-- 💖 Pop-up secreto de "amor" -->
+<div id="popupAmor" class="popup">
+  <div class="popup-content">
+    <img src="ticket.png" alt="Amor" style="max-width:250px; border-radius:15px; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+    <p style="margin-top:15px; font-size:16px; color:#a64ac9; font-weight:bold;">
+      Siempre serás mi amorcito precioso 💜✨
+    </p>
+    <button onclick="cerrarPopupAmor()">Cerrar</button>
+  </div>
+</div>
+
+
+<!-- 🍬 Pop-up secreto de "fini" -->
+<div id="popupFini" class="popup">
+  <div class="popup-content">
+    <img src="fini.jpg" alt="Fini" style="max-width:220px; border-radius:15px; margin-bottom:15px; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+    <p style="font-size:14px; color:#a64ac9; font-weight:bold; line-height:1.5;">
+      Y RECUERDA COMPRAR LOS CHICLES DE FRUTAS ÁCIDAS MARCA FINI CON SABORES SURTIDOS,  
+      EXCESOS DE AZÚCARES CON UN PESO NETO DE 80G Y UN NÚMERO DE 16 PORCIONES POR ENVASE 🍬
+    </p>
+    <button onclick="cerrarPopupFini()">Cerrar</button>
+  </div>
+</div>
+
+
   <script src="home.js"></script>
 </body>
 </html>

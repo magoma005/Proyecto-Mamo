@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tony</title>
+  <link rel="stylesheet" href="tony.css">
+</head>
+<body>
+  <div class="terror-container">
+    <h1>Hola Andre, soy yo, Tony</h1>
+    <img src="tonyexe.jpeg" alt="Tony" class="tony-img">
+    <audio id="terror-audio" loop>
+      <source src="horror.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Imagen jumpscare oculta -->
+  <div id="jumpscare">
+    <img src="tonyexe.jpeg" alt="Tony Jumpscare">
+  </div>
+
+  <script>
+    const audio = document.getElementById("terror-audio");
+
+    // Intentar reproducir apenas cargue
+    window.addEventListener("load", () => {
+      audio.volume = 0.7;
+      audio.play().catch(() => {
+        // Si el navegador bloquea, pedimos clic
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+
+      // Lanzar jumpscare a los 6 segundos
+      setTimeout(() => {
+        document.getElementById("jumpscare").style.display = "flex";
+        audio.volume = 1.0; // subir volumen al máximo para el susto
+        // Reproduce un rugido si tienes otro sonido jumpscare.mp3
+        // new Audio("jumpscare.mp3").play();
+        setTimeout(() => {
+          document.getElementById("jumpscare").style.display = "none";
+          audio.volume = 0.7; // volver al volumen normal
+        }, 2000);
+      }, 6000);
+    });
+  </script>
+</body>
+</html>

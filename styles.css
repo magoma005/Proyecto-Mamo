@@ -184,3 +184,17 @@ button:hover {
 
 
 
+/* Pop-up de video más amplio */
+.video-popup {
+  max-width: 500px;
+}
+
+.video-popup video {
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+#popupAmor .popup-content {
+  background: #ffe6f2;
+  border: 2px solid #d291bc;
+}
