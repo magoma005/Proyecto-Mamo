@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenida, mi amor 💜</title>
+  <link rel="stylesheet" href="../Principal/styles.css";>
+</head>
+<body>
+  <div class="home-container">
+  <img src="strawberry.png" alt="Rosita Fresita" class="strawberry" onclick="mostrarPopup()">
+    <h1>Hola, mi princesa 💕</h1>
+    <p>Este es tu rinconcito especial hecho con mucho amor 🥰</p>
+    
+    <div class="menu">
+      <a href="../Carta/carta.html" class="menu-btn">📖 Tu cartita</a>
+      <a href="../Recuerdos/galeria.html" class="menu-btn">📸 Nuestros recuerdos</a>
+      <a href="../Organiza/organiza.html" class="menu-btn">🗓️ Organiza tu semana</a>
+      <a href="../Juego/quiz.html" class="menu-btn">🎮 Mini juego</a>
+      <a href="../Playlist/playlist.html" class="menu-btn">🎶 Nuestra música</a>
+    </div>
+  </div>
+<!-- 🌸 Pop-up oculto -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <p>Hola Andre, soy Rosita Fresita, y te quiero muchooo linda 💕🍓</p>
+    <button onclick="cerrarPopup()">Cerrar</button>
+  </div>
+</div>
+  <script src="home.js"></script>
+</body>
+</html>

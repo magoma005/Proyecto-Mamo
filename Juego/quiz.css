@@ -1,0 +1,92 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("ballerina.gif") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Ajustamos para que no se corte contenido */
+  min-height: 100vh;
+  margin: 0;
+  padding: 50px 0; /* un poco de padding arriba y abajo */
+  overflow-y: auto; /* permite scroll si es necesario */
+}
+
+.quiz-container {
+  background: rgba(255, 182, 193, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  color: #fff;
+  max-width: 750px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+  margin: 0 auto; /* centra horizontalmente */
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+  color: #ff69b4;
+  text-shadow: 1px 1px 6px #fff;
+}
+
+.question {
+  margin: 25px 0 15px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 4px #ff1493;
+}
+
+.answers label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: 0.3s;
+  background: rgba(255, 105, 180, 0.2);
+}
+
+.answers input[type="radio"] {
+  margin-right: 10px;
+}
+
+.answers label:hover {
+  background: rgba(255, 105, 180, 0.5);
+}
+
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: #ff69b4;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+}
+
+button:hover {
+  background: #ff1493;
+  transform: scale(1.05);
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 5px #ff1493;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(-20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}

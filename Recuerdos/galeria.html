@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros recuerdos 📸💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="galeria.css">
+</head>
+<body>
+
+  <!-- Decoraciones -->
+<img src="angellina.png" class="decoracion kitty" onclick="mostrarMensaje('Mi bailarina favorita, te amodoroooooo 💕')">
+<img src="dracu.png" class="decoracion imagen-subida" onclick="mostrarMensaje('Gracias por decirme tu personaje favorito LKASFKLSAKLASF 🦇❤️')">
+
+
+  <!-- Elementos flotantes -->
+  <div class="float" style="left:10%; animation-delay:0s;">💖</div>
+  <div class="float" style="left:25%; animation-delay:2s;">🌸</div>
+  <div class="float" style="left:50%; animation-delay:3s;">✨</div>
+  <div class="float" style="left:70%; animation-delay:4s;">💗</div>
+  <div class="float" style="left:90%; animation-delay:1s;">🦋</div>
+
+  <!-- Contenedor principal -->
+  <div class="galeria-container">
+    <h1>Nuestros recuerdos 💕</h1>
+    <p>Momentos que siempre quiero tener contigo 🥰</p>
+
+    <!-- Galería -->
+    <div class="galeria">
+      <div class="foto"><img src="foto1.jpg" alt="Recuerdo 1"></div>
+      <div class="foto"><img src="foto2.jpg" alt="Recuerdo 2"></div>
+      <div class="foto"><img src="foto3.jpg" alt="Recuerdo 3"></div>
+      <div class="foto"><img src="foto4.jpg" alt="Recuerdo 4"></div>
+      <div class="foto"><img src="foto5.jpg" alt="Recuerdo 5"></div>
+      <div class="foto"><img src="foto6.jpg" alt="Recuerdo 6"></div>
+      <div class="foto"><img src="foto7.jpg" alt="Recuerdo 7"></div>
+      <div class="foto"><img src="foto8.jpg" alt="Recuerdo 8"></div>
+      <div class="foto"><img src="foto9.jpg" alt="Recuerdo 9"></div>
+    </div>
+
+    <button class="btn-home" onclick="irHome()">Volver a Home 🏠</button>
+  </div>
+
+  <script>
+  function irHome() {
+    window.location.href = "../MenuPrincipal/home.html";
+  }
+
+  function mostrarMensaje(texto) {
+    // Crear el div del mensaje
+    const msg = document.createElement("div");
+    msg.classList.add("mensaje");
+    msg.textContent = texto;
+    document.body.appendChild(msg);
+
+    // Quitar mensaje después de 2.5s con animación
+    setTimeout(() => {
+      msg.classList.add("ocultar");
+      msg.addEventListener("animationend", () => msg.remove());
+    }, 2500);
+  }
+</script>
+</body>
+</html>

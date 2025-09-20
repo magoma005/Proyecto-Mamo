@@ -1,0 +1,153 @@
+body {
+  font-family: 'Dancing Script', cursive;
+  background: url('background.gif') center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 40px 0; /* margen superior e inferior */
+  color: #5a0033;
+  min-height: 100vh; /* en lugar de height fija */
+  overflow-x: hidden; /* permite scroll vertical, bloquea solo horizontal */
+}
+
+.galeria-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 25px;
+  max-width: 900px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 4px solid #ff99cc;
+  animation: aparecer 1.2s ease-in-out;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.7) rotate(-3deg); opacity: 0; }
+  to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 36px;
+  color: #e60073;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Galería grid */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.foto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  transition: transform 0.4s;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.foto:hover {
+  transform: scale(1.05);
+}
+
+.foto:hover img {
+  transform: scale(1.1);
+}
+
+/* Botón */
+.btn-home {
+  margin-top: 30px;
+  background: linear-gradient(45deg, #ff66b2, #ff99cc);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+  font-family: 'Pacifico', cursive;
+}
+
+.btn-home:hover {
+  background: #cc0066;
+  transform: scale(1.1);
+}
+
+/* Decoraciones */
+.decoracion {
+  position: absolute;
+  width: 120px;
+  opacity: 0.9;
+}
+
+.kitty {
+  bottom: 10px;
+  left: 10px;
+}
+
+.imagen-subida {
+  top: 10px;
+  right: 10px;
+}
+
+/* Elementos flotantes */
+.float {
+  position: absolute;
+  font-size: 28px;
+  animation: flotar 6s infinite ease-in-out;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-200px) rotate(20deg); opacity: 0.7; }
+  100% { transform: translateY(-400px) rotate(-20deg); opacity: 0; }
+}
+
+/* Mensajes flotantes al hacer clic */
+.mensaje {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(255, 182, 193, 0.95);
+  color: #5a0033;
+  font-size: 22px;
+  font-family: 'Pacifico', cursive;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  z-index: 1000;
+  opacity: 0;
+  animation: aparecerMensaje 0.5s forwards;
+}
+
+@keyframes aparecerMensaje {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.mensaje.ocultar {
+  animation: desaparecerMensaje 0.4s forwards;
+}
+
+@keyframes desaparecerMensaje {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}

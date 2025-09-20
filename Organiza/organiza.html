@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Organiza tu semana 📅</title>
+  <link rel="stylesheet" href="organiza.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Organiza tu semana ✨</h1>
+    <p>Escribe tus planes de lunes a viernes, y guarda tu agenda en Word 📝</p>
+
+    <label for="semana">Semana:</label>
+    <input type="text" id="semana" placeholder="Escribe la fecha de tu semana">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-horarios">
+        <!-- Aquí se generarán los horarios automáticamente -->
+      </tbody>
+    </table>
+
+    <button onclick="generarWord()">Generar Word 📂</button>
+    <button onclick="irHome()">Volver a Home 🏠</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.3.2/docx.min.js"></script>
+<script src="organiza.js"></script>
+</body>
+</html>
