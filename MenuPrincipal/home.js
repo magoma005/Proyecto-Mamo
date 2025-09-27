@@ -51,7 +51,6 @@ function cerrarPopupAmor() {
 // Easter Egg "tony"
 // ====================
 function activarTony() {
-  // Redirige a la página de terror
   window.location.href = "tony.html";
 }
 
@@ -121,51 +120,57 @@ function cerrarPopupAndre() {
 }
 
 // ====================
-// Detector actualizado
+// Pop-up "Mamor te necesito"
+// ====================
+emailjs.init("SrqUEnG3AFFI-FgLO");
+
+function mostrarPopupMamor(event) {
+  if (event) event.preventDefault();
+  document.getElementById("popupMamor").style.display = "flex";
+}
+
+function cerrarPopupMamor() {
+  document.getElementById("popupMamor").style.display = "none";
+}
+
+function enviarCorreoMamor() {
+  const mensaje = document.getElementById("mensajeMamor").value.trim();
+  if (mensaje === "") {
+    alert("Por favor escribe algo antes de enviar 💌");
+    return;
+  }
+
+emailjs.send("service_a8urice", "template_d36xvan", {
+  name: "Tu mamor",  // coincide con {{name}} en la plantilla
+  message: mensaje
+})
+
+  .then(() => {
+    alert("Correo enviado a Mamor ❤️");
+    document.getElementById("mensajeMamor").value = ""; 
+    cerrarPopupMamor();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Ups! Ocurrió un error al enviar 😢");
+  });
+}
+
+// ====================
+// Detector actualizado de teclas
 // ====================
 let buffer = "";
 
 document.addEventListener("keydown", function(e) {
   buffer += e.key.toLowerCase();
-  if (buffer.length > 8) buffer = buffer.slice(-8); // para "canelita" y más
+  if (buffer.length > 8) buffer = buffer.slice(-8);
 
-  if (buffer.endsWith("meamo")) {
-    mostrarPopupMeamo();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("tony")) {
-    activarTony();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("amor")) {
-    mostrarPopupAmor();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("fini")) {
-    mostrarPopupFini();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("yoda")) {
-    mostrarPopupYoda();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("canelita")) {
-    mostrarPopupCanelita();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("kurt")) {
-    mostrarPopupKurt();
-    buffer = "";
-  }
-
-  if (buffer.endsWith("andre")) {
-    mostrarPopupAndre();
-    buffer = "";
-  }
+  if (buffer.endsWith("meamo")) { mostrarPopupMeamo(); buffer = ""; }
+  if (buffer.endsWith("tony")) { activarTony(); buffer = ""; }
+  if (buffer.endsWith("amor")) { mostrarPopupAmor(); buffer = ""; }
+  if (buffer.endsWith("fini")) { mostrarPopupFini(); buffer = ""; }
+  if (buffer.endsWith("yoda")) { mostrarPopupYoda(); buffer = ""; }
+  if (buffer.endsWith("canelita")) { mostrarPopupCanelita(); buffer = ""; }
+  if (buffer.endsWith("kurt")) { mostrarPopupKurt(); buffer = ""; }
+  if (buffer.endsWith("andre")) { mostrarPopupAndre(); buffer = ""; }
 });
