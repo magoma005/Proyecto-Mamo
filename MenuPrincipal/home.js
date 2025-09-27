@@ -82,14 +82,52 @@ function cerrarPopupYoda() {
 }
 
 // ====================
-// Detector de secuencia de letras
+// Pop-up "canelita"
+// ====================
+function mostrarPopupCanelita() {
+  const popup = document.getElementById("popupCanelita");
+  popup.style.display = "flex";
+}
+
+function cerrarPopupCanelita() {
+  const popup = document.getElementById("popupCanelita");
+  popup.style.display = "none";
+}
+
+// ====================
+// Pop-up "kurt"
+// ====================
+function mostrarPopupKurt() {
+  const popup = document.getElementById("popupKurt");
+  popup.style.display = "flex";
+}
+
+function cerrarPopupKurt() {
+  const popup = document.getElementById("popupKurt");
+  popup.style.display = "none";
+}
+
+// ====================
+// Pop-up "andre"
+// ====================
+function mostrarPopupAndre() {
+  const popup = document.getElementById("popupAndre");
+  popup.style.display = "flex";
+}
+
+function cerrarPopupAndre() {
+  const popup = document.getElementById("popupAndre");
+  popup.style.display = "none";
+}
+
+// ====================
+// Detector actualizado
 // ====================
 let buffer = "";
 
 document.addEventListener("keydown", function(e) {
   buffer += e.key.toLowerCase();
-
-  if (buffer.length > 6) buffer = buffer.slice(-6);
+  if (buffer.length > 8) buffer = buffer.slice(-8); // para "canelita" y más
 
   if (buffer.endsWith("meamo")) {
     mostrarPopupMeamo();
@@ -113,6 +151,21 @@ document.addEventListener("keydown", function(e) {
 
   if (buffer.endsWith("yoda")) {
     mostrarPopupYoda();
+    buffer = "";
+  }
+
+  if (buffer.endsWith("canelita")) {
+    mostrarPopupCanelita();
+    buffer = "";
+  }
+
+  if (buffer.endsWith("kurt")) {
+    mostrarPopupKurt();
+    buffer = "";
+  }
+
+  if (buffer.endsWith("andre")) {
+    mostrarPopupAndre();
     buffer = "";
   }
 });
