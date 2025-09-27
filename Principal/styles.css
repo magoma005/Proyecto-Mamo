@@ -183,4 +183,21 @@ button:hover {
 }
 
 
+/* Botón del pop-up Mamor te necesito */
+#popupMamor button {
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  padding: 12px 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff6ec7, #d291bc);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(255, 110, 199, 0.4);
+  transition: 0.3s;
+}
 
+#popupMamor button:hover {
+  background: linear-gradient(135deg, #d291bc, #fcb1d4);
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(255, 110, 199, 0.5);
+}
