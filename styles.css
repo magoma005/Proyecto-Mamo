@@ -8,15 +8,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: url('back.gif') no-repeat center center fixed;
   background-size: cover;
-
   font-family: 'Poppins', sans-serif;
   color: #555;
 }
 
-/* 🌸 Caja base (login y home usan variación de este estilo) */
+/* 🌸 Caja base */
 .container,
 .login-container,
 .home-container {
@@ -29,10 +27,23 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Animación de entrada */
+/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+@keyframes moveAround {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(100px, 50px); }
+  50% { transform: translate(200px, 0); }
+  75% { transform: translate(100px, -50px); }
+  100% { transform: translate(0, 0); }
 }
 
 /* 🌸 Hello Kitty */
@@ -45,10 +56,13 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Animación de flotación */
-@keyframes float {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-8px); }
+/* 🌸 Rosita Fresita animada */
+.strawberry {
+  width: 100px;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  animation: moveAround 24s linear infinite;
 }
 
 /* 🌸 Login */
@@ -72,7 +86,8 @@ input {
   font-size: 14px;
 }
 
-button {
+button,
+.popup-content button {
   padding: 12px 24px;
   border: none;
   border-radius: 20px;
@@ -83,7 +98,8 @@ button {
   transition: 0.3s;
 }
 
-button:hover {
+button:hover,
+.popup-content button:hover {
   background: linear-gradient(135deg, #d291bc, #fcb1d4);
   transform: scale(1.05);
 }
@@ -109,15 +125,20 @@ button:hover {
   font-size: 15px;
 }
 
+/* 🌸 Menú */
 .menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
-.menu-btn {
-  display: block;
-  padding: 15px;
+.menu-btn,
+.evento-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
   background: linear-gradient(135deg, #a64ac9, #d291bc);
   color: white;
   text-decoration: none;
@@ -126,26 +147,30 @@ button:hover {
   font-size: 14px;
   transition: 0.3s;
   box-shadow: 0 5px 15px rgba(166, 74, 201, 0.2);
+  text-align: center;
+  line-height: 1;
 }
 
-.menu-btn:hover {
+.menu-btn:hover,
+.evento-btn:hover {
   background: linear-gradient(135deg, #d291bc, #fcb1d4);
   transform: scale(1.07);
   box-shadow: 0 6px 18px rgba(166, 74, 201, 0.3);
 }
 
-/* 🌸 Rosita Fresita animada */
-.strawberry {
-  width: 100px; /* un poco más grande aún */
-  position: absolute;
-  top: -50px;  /* arranca arriba */
-  left: -50px; /* arranca izquierda */
-  animation: moveAround 24s linear infinite;
+
+.evento-logo {
+  max-width: 80%;
+  max-height: 25px;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* 🌸 Fondo oscuro del pop-up */
+/* 🌸 Pop-up */
 .popup {
-  display: none; /* oculto por defecto */
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -155,8 +180,6 @@ button:hover {
   z-index: 1000;
 }
 
-
-/* 🌸 Caja del pop-up */
 .popup-content {
   background: #fff0f6;
   padding: 25px 30px;
@@ -166,25 +189,12 @@ button:hover {
   animation: fadeIn 0.5s ease;
 }
 
-/* Botón del pop-up */
-.popup-content button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #a64ac9, #d291bc);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+#popupAmor .popup-content {
+  background: #ffe6f2;
+  border: 2px solid #d291bc;
 }
 
-.popup-content button:hover {
-  background: linear-gradient(135deg, #d291bc, #fcb1d4);
-}
-
-
-
-/* Pop-up de video más amplio */
+/* 🌸 Video pop-up */
 .video-popup {
   max-width: 500px;
 }
@@ -194,7 +204,4 @@ button:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
-#popupAmor .popup-content {
-  background: #ffe6f2;
-  border: 2px solid #d291bc;
-}
+
