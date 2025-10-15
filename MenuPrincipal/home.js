@@ -156,6 +156,45 @@ emailjs.send("service_a8urice", "template_d36xvan", {
   });
 }
 
+
+// ====================
+// Cuenta regresiva al 24 de Noviembre
+// ====================
+const contador = document.getElementById("contador");
+const fechaObjetivo = new Date(new Date().getFullYear(), 10, 24, 0, 0, 0); 
+// Mes 10 = Noviembre (0 = Enero)
+
+function mostrarPopup24N() {
+  document.getElementById("popup24N").style.display = "flex";
+}
+
+function cerrarPopup24N() {
+  document.getElementById("popup24N").style.display = "none";
+}
+
+function actualizarCuenta() {
+  const ahora = new Date();
+  const diferencia = fechaObjetivo - ahora;
+
+  if (diferencia <= 0) {
+    contador.innerHTML = "💜 ¡Hoy es nuestro 24 de Noviembre! 💜";
+    mostrarPopup24N(); // 👉 abre el pop-up sorpresa
+    clearInterval(intervaloCuenta);
+    return;
+  }
+
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+  const segundos = Math.floor((diferencia / 1000) % 60);
+
+  contador.innerHTML = `Faltan ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+
+actualizarCuenta(); 
+const intervaloCuenta = setInterval(actualizarCuenta, 1000);
+
+
 // ====================
 // Detector actualizado de teclas
 // ====================
