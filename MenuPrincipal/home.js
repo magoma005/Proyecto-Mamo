@@ -213,3 +213,9 @@ document.addEventListener("keydown", function(e) {
   if (buffer.endsWith("kurt")) { mostrarPopupKurt(); buffer = ""; }
   if (buffer.endsWith("andre")) { mostrarPopupAndre(); buffer = ""; }
 });
+
+function abrirEvento(event) {
+  event.preventDefault();
+  window.location.href = "../Evento/event.html"; // o la ruta correcta de tu página del evento
+}
+

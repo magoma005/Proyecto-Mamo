@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evento - Museo de Nosotros</title>
+  <link rel="stylesheet" href="event.css">
+</head>
+<body>
+  <!-- Intro cinematográfica -->
+  <div id="intro">
+    <img id="logo1" class="logo" src="mago.png" alt="Mago">
+    <img id="logo2" class="logo" src="tony.png" alt="Tony">
+    <img id="logo3" class="logo" src="presenta.png" alt="Presenta">
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="main-content" class="hidden">
+    <header id="event-header">
+      <img src="../MenuPrincipal/Logo.png" alt="Logo Principal" id="main-logo">
+    </header>
+
+    <div id="grid-container">
+      <script>
+        for (let i = 1; i <= 24; i++) {
+          document.write(`
+            <div class="grid-item" data-available="${i <= 5}">
+              <img id="portada${i}" src="portada${i}.jpg" alt="Historia ${i}">
+            </div>
+          `);
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- Botón flotante para volver -->
+  <button id="btn-volver" title="Volver al Menú Principal">←</button>
+
+  <script src="event.js"></script>
+  <script>
+    const btnVolver = document.getElementById("btn-volver");
+    if (btnVolver) {
+      btnVolver.addEventListener("click", () => {
+        window.location.href = "../MenuPrincipal/home.html";
+      });
+    }
+  </script>
+</body>
+</html>
