@@ -36,13 +36,31 @@
   <!-- Botón flotante para volver -->
   <button id="btn-volver" title="Volver al Menú Principal">←</button>
 
-  <!-- 🎵 Audio de fondo (versión funcional) -->
+  <!-- 🎵 Audio de fondo -->
   <audio id="bg-audio" loop>
     <source src="rain.mp3" type="audio/mpeg">
   </audio>
 
   <script src="event.js"></script>
   <script>
+    const audio = document.getElementById("bg-audio");
+
+    // Intentar reproducir apenas cargue
+    window.addEventListener("load", () => {
+      audio.volume = 0.4;
+      audio.play().catch(() => {
+        // Si el navegador bloquea, reproducir al primer clic
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+
+        // O al primer keydown
+        document.body.addEventListener("keydown", () => {
+          audio.play();
+        }, { once: true });
+      });
+    });
+
     // --- Botón volver ---
     const btnVolver = document.getElementById("btn-volver");
     if (btnVolver) {
@@ -50,26 +68,6 @@
         window.location.href = "../MenuPrincipal/home.html";
       });
     }
-
-    // --- Audio de fondo ---
-    const audio = document.getElementById("bg-audio");
-
-    window.addEventListener("load", () => {
-      audio.volume = 0.4;
-
-      // Intentar reproducir automáticamente
-      audio.play().catch(() => {
-        console.log("⚠️ El navegador bloqueó la reproducción automática, esperando interacción...");
-        // Si el navegador bloquea, reproducir al primer clic o tecla
-        const enableAudio = () => {
-          audio.play();
-          document.removeEventListener("click", enableAudio);
-          document.removeEventListener("keydown", enableAudio);
-        };
-        document.addEventListener("click", enableAudio);
-        document.addEventListener("keydown", enableAudio);
-      });
-    });
   </script>
 </body>
 </html>
