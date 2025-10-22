@@ -36,8 +36,10 @@
   <!-- Botón flotante para volver -->
   <button id="btn-volver" title="Volver al Menú Principal">←</button>
 
-  <!-- 🎵 Audio de fondo -->
-  <audio id="bg-audio" src="rain.mp3" loop></audio>
+  <!-- 🎵 Audio de fondo (versión funcional) -->
+  <audio id="bg-audio" loop>
+    <source src="rain.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="event.js"></script>
   <script>
@@ -51,33 +53,23 @@
 
     // --- Audio de fondo ---
     const audio = document.getElementById("bg-audio");
-    audio.volume = 0; // inicia en silencio
 
-    let audioStarted = false;
+    window.addEventListener("load", () => {
+      audio.volume = 0.4;
 
-    const startAudio = () => {
-      if (audioStarted) return;
-      audioStarted = true;
-
-      audio.play().then(() => {
-        // Fade-in suave del sonido
-        let vol = 0;
-        const fade = setInterval(() => {
-          if (vol < 0.4) {
-            vol += 0.02;
-            audio.volume = vol;
-          } else {
-            clearInterval(fade);
-          }
-        }, 200);
-      }).catch(err => {
-        console.warn("No se pudo reproducir el audio:", err);
+      // Intentar reproducir automáticamente
+      audio.play().catch(() => {
+        console.log("⚠️ El navegador bloqueó la reproducción automática, esperando interacción...");
+        // Si el navegador bloquea, reproducir al primer clic o tecla
+        const enableAudio = () => {
+          audio.play();
+          document.removeEventListener("click", enableAudio);
+          document.removeEventListener("keydown", enableAudio);
+        };
+        document.addEventListener("click", enableAudio);
+        document.addEventListener("keydown", enableAudio);
       });
-    };
-
-    // Reproducir al primer clic o tecla
-    document.addEventListener("click", startAudio);
-    document.addEventListener("keydown", startAudio);
+    });
   </script>
 </body>
 </html>
