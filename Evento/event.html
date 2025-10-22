@@ -45,29 +45,42 @@
   <script>
     const audio = document.getElementById("bg-audio");
 
-    // Intentar reproducir apenas cargue
-    window.addEventListener("load", () => {
+    // --- Intro cinematográfica ---
+    const logos = [
+      document.getElementById("logo1"),
+      document.getElementById("logo2"),
+      document.getElementById("logo3")
+    ];
+
+    const mainContent = document.getElementById("main-content");
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    window.addEventListener("load", async () => {
+      // Animación de aparición de logos
+      for (const logo of logos) {
+        logo.style.opacity = 1;
+        await wait(1000);
+      }
+
+      await wait(1000);
+      document.getElementById("intro").classList.add("hidden");
+      mainContent.classList.remove("hidden");
+
+      // --- Audio de fondo ---
       audio.volume = 0.4;
       audio.play().catch(() => {
-        // Si el navegador bloquea, reproducir al primer clic
-        document.body.addEventListener("click", () => {
-          audio.play();
-        }, { once: true });
-
-        // O al primer keydown
-        document.body.addEventListener("keydown", () => {
-          audio.play();
-        }, { once: true });
+        document.body.addEventListener("click", () => audio.play(), { once: true });
       });
     });
 
     // --- Botón volver ---
     const btnVolver = document.getElementById("btn-volver");
-    if (btnVolver) {
-      btnVolver.addEventListener("click", () => {
-        window.location.href = "../MenuPrincipal/home.html";
-      });
-    }
+    btnVolver.addEventListener("click", () => {
+      window.location.href = "../MenuPrincipal/home.html";
+    });
   </script>
 </body>
 </html>
